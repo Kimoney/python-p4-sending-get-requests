@@ -1,10 +1,16 @@
 import requests
 import json
 
-url = "https://learn-co-curriculum.github.io/json-site-example/endpoints/locations.json"
+url_locations = "https://learn-co-curriculum.github.io/json-site-example/endpoints/locations.json"
+url_people = "https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json"
+location_response = requests.get(url_locations)
 
-response = requests.get(url)
+people_response = requests.get(url_people)
 
-json_content = json.loads(response.text)
 
-print(json.dumps(json_content, indent=4))
+location_json_content = json.loads(location_response.text)
+
+people_json_content = json.loads(people_response.text)
+
+print(json.dumps(location_json_content, indent=4))
+print(json.dumps(people_json_content, indent=4))
